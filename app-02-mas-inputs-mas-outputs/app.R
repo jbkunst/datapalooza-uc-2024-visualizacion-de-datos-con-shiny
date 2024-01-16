@@ -1,3 +1,5 @@
+library(shiny)
+
 ui <- fluidPage(
   titlePanel("Applicación ejercicio 1"),
   sidebarLayout(
@@ -29,3 +31,8 @@ server <- function(input, output) {
   })
   
 }
+
+
+ip <- gsub(".*? ([[:digit:]])", "\\1", system("ipconfig", intern=T)[grep("IPv4", system("ipconfig", intern = T))])
+
+shinyApp(ui = ui, server = server, options = list(host = ip))

@@ -1,3 +1,5 @@
+library(shiny)
+
 ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
@@ -18,3 +20,5 @@ server <- function(input, output) {
     plot(x, type = t, col = input$col)
   })
 }
+
+runApp(list(ui = ui, server = server))
